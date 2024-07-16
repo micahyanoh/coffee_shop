@@ -2,9 +2,15 @@ import 'package:coffee_shop/models/coffee.dart';
 import 'package:coffee_shop/utils/constants.dart';
 import 'package:flutter/material.dart';
 
+// ignore: must_be_immutable
 class AppCoffeeTile extends StatelessWidget {
-  AppCoffeeTile({super.key, required this.coffee, required this.onPressed});
+  AppCoffeeTile(
+      {super.key,
+      required this.coffee,
+      required this.onPressed,
+      required this.icon});
   final Coffee coffee;
+  final Widget icon;
   void Function()? onPressed;
 
   @override
@@ -21,7 +27,7 @@ class AppCoffeeTile extends StatelessWidget {
         subtitle: Text(coffee.price),
         leading: Image.asset(coffee.imagePath),
         trailing: IconButton(
-          icon: Icon(Icons.add),
+          icon: icon,
           onPressed: onPressed,
         ),
       ),
